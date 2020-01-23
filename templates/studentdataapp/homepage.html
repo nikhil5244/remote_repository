@@ -1,0 +1,68 @@
+{% extends 'studentdataapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Data</title>
+
+</head>
+<body>
+{% block content %}
+<style>
+    .jembotron{color: black;background-color: lightcoral;margin-left: 400px;
+        margin-right: 400px;}
+    th{color: orangered}
+    td{color: darkred}
+
+</style>
+{% if students %}
+<div class="jembotron">
+<center>
+<h1>CURD Operations Page</h1>
+</center>
+</div>
+<table class="table ">
+<thead>
+<tr>
+    <th>StudentRoleNumber</th>
+    <th>StudentFirstName</th>
+    <th>StudentLastName</th>
+    <th>StudentClass</th>
+    <th>StudentSection</th>
+    <th>Telugu</th>
+    <th>Hindi</th>
+    <th>English</th>
+    <th>Mathematics</th>
+    <th>Scince</th>
+    <th>Social</th>
+    <th>Actions</th>
+</tr>
+</thead>
+   {% for i in students %}
+    <tbody>
+    <tr>
+        <td>{{ i.student_roll_number }}</td>
+        <td>{{ i.student_first_name }}</td>
+        <td>{{ i.student_last_name }}</td>
+        <td>{{ i.student_class }}</td>
+        <td>{{ i.student_section }}</td>
+        <td>{{ i.telugu_marks }}</td>
+        <td>{{ i.hindi_marks }}</td>
+        <td>{{ i.english_marks }}</td>
+        <td>{{ i.mathematics_marks }}</td>
+        <td>{{ i.scince_marks }}</td>
+        <td>{{ i.social_marks }}</td>
+        <td>
+            <a href="/edit/{{ i.id }}" class="btn btn-success">Edit</a>
+             <a  href="/delete/{{ i.id }}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+   {% endfor %}
+</table>
+<a href="addstudent" class="btn btn-info">AddStudent</a>
+{% else %}
+{% endif%}
+{% endblock %}
+</body>
+</html>

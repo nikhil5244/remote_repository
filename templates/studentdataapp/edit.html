@@ -1,0 +1,85 @@
+{% extends 'studentdataapp/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>editpage</title>
+</head>
+<body>
+{% block content %}
+<style>
+    h3{color: fuchsia;font-size: 50px;font-family: "Times New Roman"}
+    label{color: salmon}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <center>
+            <h3>Edit Details Here</h3>
+            </center>
+            <form method="POST" action="/update/{{ student.id }}">
+                {% csrf_token %}
+                <label>Roll Number</label>
+                <input type="number" name="student_roll_number" class="form-control" value="{{ student.student_roll_number }}" readonly>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Fname</label>
+                        <input type="text" name="student_first_name" class="form-control" value="{{ student.student_first_name }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Lname</label>
+                        <input type="text" name="student_last_name" class="form-control" value="{{ student.student_last_name }}" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Class</label>
+                        <input type="text" name="student_class"  class="form-control" value="{{ student.student_class }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Section</label>
+                        <input type="text" name="student_section" class="form-control" value="{{ student.student_section }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Telugu</label>
+                        <input type="number" name="telugu_marks"  class="form-control" value="{{ student.telugu_marks }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Hindi</label>
+                        <input type="number" name="hindi_marks"  class="form-control" value="{{ student.hindi_marks }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>English</label>
+                        <input type="number" name="english_marks"  class="form-control" value="{{ student.english_marks }}">
+                    </div>
+                    <div class="col-md-6">
+                         <label>Maths</label>
+                         <input type="number" name="mathematics_marks"  class="form-control" value="{{ student.mathematics_marks }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <label>Scince</label>
+                        <input type="number" name="scince_marks"  class="form-control" value="{{ student.scince_marks }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Social</label>
+                        <input type="number" name="social_marks"  class="form-control" value="{{ student.social_marks }}">
+                    </div>
+                </div>
+                <center>
+                    <input type="submit" name="submit" class="btn btn-success">
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'studentdataapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addstudentsdata</title>
+</head>
+<body>
+{% block content %}
+<style>
+    h3{color: yellow;font-size: 50px;font-family: Algerian;text-underline:black }
+    label{color: blue}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <center>
+            <h3>Add Student Details</h3>
+            </center>
+            <form action="/create" method="POST">
+                {% csrf_token %}
+             <label>Roll Number</label>
+                <input type="number" name="student_roll_number" class="form-control" >
+                <div class="row">
+                    <div class="col-md-6">
+                       <label>First Name</label>
+                        <input type="text" name="student_first_name"  class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Last Name</label>
+                        <input type="text" name="student_last_name"  class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Class</label>
+                        <input type="text" name="student_class"  class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Section</label>
+                        <input type="text" name="student_section"  class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Telugu</label>
+                        <input type="number" name="telugu_marks"  class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Hindi</label>
+                        <input type="number" name="hindi_marks"  class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                         <label>English</label>
+                         <input type="number" name="english_marks"  class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Maths</label>
+                        <input type="number" name="mathematics_marks"  class="form-control">
+                    </div>
+                </div>
+               <div class="row">
+                   <div class="col-md-6">
+                        <label>Scince</label>
+                        <input type="number" name="scince_marks"  class="form-control">
+                   </div>
+                   <div class="col-md-6">
+                        <label>Social</label>
+                        <input type="number" name="social_marks"  class="form-control">
+                   </div>
+               </div>
+            <center>
+                <input type="submit" name="submit" class="btn btn-success">
+            </center>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
